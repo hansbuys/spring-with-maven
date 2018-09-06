@@ -2,7 +2,7 @@ package com.hansb.springwithmaven.fakes;
 
 import com.hansb.springwithmaven.repository.Database;
 
-public class TestDatabase implements Database {
+public class DatabaseFake implements Database {
 
     private String description;
     private boolean shouldThrow;

@@ -28,7 +28,7 @@ public class HomeController {
         try {
             logger.log(Level.FINE, "Getting description...");
             String description = database.description();
-            logger.log(Level.FINE, "Description = '{0}'.", description);
+            logger.log(Level.FINE, "Description = '%s'.", description);
 
             return ResponseEntity.ok(description);
         } catch (Exception e) {

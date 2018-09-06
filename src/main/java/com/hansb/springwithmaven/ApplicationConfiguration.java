@@ -21,7 +21,7 @@ public class ApplicationConfiguration {
     @Bean
     @Scope("prototype")
     Logger logger(InjectionPoint injectionPoint){
-        MethodParameter methodParameter = Objects.requireNonNull(injectionPoint.getMethodParameter());
-        return Logger.getLogger(methodParameter.getContainingClass().getName());
+        Class<?> containingClass = injectionPoint.getDeclaredType();
+        return Logger.getLogger(containingClass.getName());
     }
 }
