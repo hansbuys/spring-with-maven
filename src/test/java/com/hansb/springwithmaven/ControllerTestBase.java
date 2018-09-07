@@ -21,10 +21,10 @@ import static org.springframework.test.annotation.DirtiesContext.ClassMode.BEFOR
 public abstract class ControllerTestBase {
 
     @Autowired
-    protected MockMvc mvc;
+    private MockMvc mvc;
 
     @Autowired
-    protected Logger logger;
+    private Logger logger;
 
     protected ResultActions executeRequest(String urlTemplate) throws Exception {
         return mvc.perform(MockMvcRequestBuilders
