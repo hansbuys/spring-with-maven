@@ -27,7 +27,7 @@ abstract class IndexControllerTestBase extends ControllerTestBase {
     @Autowired
     protected Database database;
 
-    protected void withDescription(String description) {
+    void withDescription(String description) {
         getDatabase().withDescription(description);
     }
 
@@ -35,7 +35,7 @@ abstract class IndexControllerTestBase extends ControllerTestBase {
         return (DatabaseFake)database;
     }
 
-    protected void withDatabaseUnavailable(String errorMessage) {
+    void withDatabaseUnavailable(String errorMessage) {
         getDatabase().withDatabaseUnavailable(errorMessage);
     }
 }

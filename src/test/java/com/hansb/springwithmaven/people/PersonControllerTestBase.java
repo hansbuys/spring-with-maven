@@ -17,7 +17,7 @@ abstract class PersonControllerTestBase extends ControllerTestBase {
 
     @Configuration
     @Import(Application.class)
-    public static class TestConfig
+    static class TestConfig
     {
         @Bean
         @Primary
@@ -28,17 +28,17 @@ abstract class PersonControllerTestBase extends ControllerTestBase {
     }
 
     @Autowired
-    protected Database database;
+    Database database;
 
-    protected DatabaseFake getDatabase() {
+    private DatabaseFake getDatabase() {
         return (DatabaseFake)database;
     }
 
-    protected void withPeople(Collection<DatabaseFake.PersonFake> people) {
+    private void withPeople(Collection<DatabaseFake.PersonFake> people) {
         this.getDatabase().withPeople(people);
     }
 
-    protected void withPeople(DatabaseFake.PersonFake... people) {
+    void withPeople(DatabaseFake.PersonFake... people) {
         withPeople(Arrays.asList(people));
     }
 }

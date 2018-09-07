@@ -27,14 +27,12 @@ public abstract class ControllerTestBase {
     protected Logger logger;
 
     protected ResultActions executeRequest(String urlTemplate) throws Exception {
-        ResultActions result = mvc.perform(MockMvcRequestBuilders.get(urlTemplate).accept(MediaType.APPLICATION_JSON)).andDo(mvcResult -> {
-            String content = mvcResult.getResponse().getContentAsString();
+        return mvc.perform(MockMvcRequestBuilders
+                .get(urlTemplate)
+                .accept(MediaType.APPLICATION_JSON)).andDo(mvcResult -> {
+                    String content = mvcResult.getResponse().getContentAsString();
 
-            logger.log(Level.INFO, String.format("Request '%s' returned '%s'.", urlTemplate, content));
-        });
-
-
-
-        return result;
+                    logger.log(Level.INFO, String.format("Request '%s' returned '%s'.", urlTemplate, content));
+                });
     }
 }
