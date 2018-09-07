@@ -1,6 +1,5 @@
-package com.hansb.springwithmaven;
+package com.hansb.springwithmaven.index;
 
-import com.hansb.springwithmaven.repository.Database;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,13 +9,14 @@ import java.util.logging.Logger;
 import java.util.logging.Level;
 
 @RestController
-public class HomeController {
+@RequestMapping("/")
+public class IndexController {
 
     private final Database database;
     private final Logger logger;
 
     @Autowired
-    public HomeController(Database database, Logger logger) {
+    public IndexController(Database database, Logger logger) {
         this.database = database;
         this.logger = logger;
     }

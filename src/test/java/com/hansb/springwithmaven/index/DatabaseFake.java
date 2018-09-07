@@ -1,8 +1,6 @@
-package com.hansb.springwithmaven.fakes;
+package com.hansb.springwithmaven.index;
 
-import com.hansb.springwithmaven.repository.Database;
-
-public class DatabaseFake implements Database {
+class DatabaseFake implements Database {
 
     private String description;
     private boolean shouldThrow;

@@ -1,4 +1,4 @@
-package com.hansb.springwithmaven;
+package com.hansb.springwithmaven.index;
 
 import org.junit.Test;
 
@@ -6,7 +6,7 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-public class HomeControllerTests extends HomeControllerTestBase {
+public class IndexControllerTests extends IndexControllerTestBase {
 
     @Test
     public void returnsDescriptionFromDatabase() throws Exception {
