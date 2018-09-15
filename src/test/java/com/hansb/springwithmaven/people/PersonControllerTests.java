@@ -18,8 +18,8 @@ public class PersonControllerTests extends PersonControllerTestBase {
     @Test
     public void indexDisplaysAllPeopleInDatabase() throws Exception {
         withPeople(
-                new Person("Dilbert"),
-                new Person("Dogbert")
+                new Person(1, "Dilbert"),
+                new Person(2, "Dogbert")
         );
 
         executeRequest("/person")
@@ -29,5 +29,26 @@ public class PersonControllerTests extends PersonControllerTestBase {
                 .andExpect(jsonPath("[0].name").value("Dilbert"))
                 .andExpect(jsonPath("[1].name").value("Dogbert"))
                 .andExpect(jsonPath("[2]").doesNotExist());
+    }
+
+    @Test
+    public void indexWithParameterDisplaysSpecificPersonFromDatabase() throws Exception {
+        withPeople(
+                new Person(1, "Dilbert"),
+                new Person(2, "Dogbert")
+        );
+
+        executeRequest("/person/1")
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(1))
+                .andExpect(jsonPath("$.name").value("Dilbert"));
+
+        executeRequest("/person/2")
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(2))
+                .andExpect(jsonPath("$.name").value("Dogbert"));
+
+        executeRequest("/person/3")
+                .andExpect(status().isNotFound());
     }
 }

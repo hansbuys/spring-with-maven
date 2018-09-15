@@ -11,6 +11,7 @@ abstract class PersonControllerTestBase extends ControllerTestBase {
 
     private void withPeople(Collection<Person> people) {
         when(peopleDatabase.getPeople()).thenReturn(people);
+        people.forEach(person -> when(peopleDatabase.getPerson(person.getId())).thenReturn(person));
     }
 
     void withPeople(Person... people) {
