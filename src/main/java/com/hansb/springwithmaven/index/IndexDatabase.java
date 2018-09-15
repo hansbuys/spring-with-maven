@@ -1,5 +1,5 @@
 package com.hansb.springwithmaven.index;
 
-interface Database {
+public interface IndexDatabase {
     String description() throws Exception;
 }

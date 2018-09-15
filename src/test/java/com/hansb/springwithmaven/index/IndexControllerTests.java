@@ -9,6 +9,17 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class IndexControllerTests extends IndexControllerTestBase {
 
     @Test
+    public void returnsBadRequestWhenDatabaseUnavailable() throws Exception {
+        String errorMessage = "IndexDatabase unavailable.";
+
+        withDatabaseUnavailable(errorMessage);
+
+        executeRequest("/")
+                .andExpect(status().isBadRequest())
+                .andExpect(content().string(equalTo(errorMessage)));
+    }
+
+    @Test
     public void returnsDescriptionFromDatabase() throws Exception {
         String databaseDescription = "test";
 
@@ -17,16 +28,5 @@ public class IndexControllerTests extends IndexControllerTestBase {
         executeRequest("/")
                 .andExpect(status().isOk())
                 .andExpect(content().string(equalTo(databaseDescription)));
-    }
-
-    @Test
-    public void returnsBadRequestWhenDatabaseUnavailable() throws Exception {
-        String errorMessage = "Database unavailable.";
-
-        withDatabaseUnavailable(errorMessage);
-
-        executeRequest("/")
-                .andExpect(status().isBadRequest())
-                .andExpect(content().string(equalTo(errorMessage)));
     }
 }

@@ -5,18 +5,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.logging.Logger;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/")
 public class IndexController {
 
-    private final Database database;
+    private final IndexDatabase database;
     private final Logger logger;
 
     @Autowired
-    public IndexController(Database database, Logger logger) {
+    public IndexController(IndexDatabase database, Logger logger) {
         this.database = database;
         this.logger = logger;
     }

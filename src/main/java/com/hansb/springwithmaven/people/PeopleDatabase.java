@@ -2,6 +2,6 @@ package com.hansb.springwithmaven.people;
 
 import java.util.Collection;
 
-interface Database {
+public interface PeopleDatabase {
     Collection<Person> getPeople();
 }

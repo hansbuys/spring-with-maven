@@ -3,7 +3,7 @@ package com.hansb.springwithmaven.people;
 import java.util.Arrays;
 import java.util.Collection;
 
-class InMemoryDatabase implements Database {
+public class InMemoryPeopleDatabase implements PeopleDatabase {
     @Override
     public Collection<Person> getPeople() {
         return Arrays.asList(

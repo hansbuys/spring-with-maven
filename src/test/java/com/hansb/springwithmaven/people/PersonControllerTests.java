@@ -18,8 +18,8 @@ public class PersonControllerTests extends PersonControllerTestBase {
     @Test
     public void indexDisplaysAllPeopleInDatabase() throws Exception {
         withPeople(
-                new DatabaseFake.PersonFake("Dilbert"),
-                new DatabaseFake.PersonFake("Dogbert")
+                new Person("Dilbert"),
+                new Person("Dogbert")
         );
 
         executeRequest("/person")

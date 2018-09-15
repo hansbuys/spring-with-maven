@@ -11,10 +11,10 @@ import java.util.Collection;
 @RequestMapping("/person")
 public class PersonController {
 
-    private final Database database;
+    private final PeopleDatabase database;
 
     @Autowired
-    PersonController(Database database) {
+    PersonController(PeopleDatabase database) {
         this.database = database;
     }
 

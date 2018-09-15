@@ -1,44 +1,19 @@
 package com.hansb.springwithmaven.people;
 
-import com.hansb.springwithmaven.Application;
 import com.hansb.springwithmaven.ControllerTestBase;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
-import org.springframework.context.annotation.Primary;
 
 import java.util.Arrays;
 import java.util.Collection;
 
-@SpringBootTest(classes = PersonControllerTestBase.TestConfig.class)
+import static org.mockito.Mockito.when;
+
 abstract class PersonControllerTestBase extends ControllerTestBase {
 
-    @Configuration
-    @Import(Application.class)
-    static class TestConfig
-    {
-        @Bean
-        @Primary
-        public Database getDatabase()
-        {
-            return new DatabaseFake();
-        }
+    private void withPeople(Collection<Person> people) {
+        when(peopleDatabase.getPeople()).thenReturn(people);
     }
 
-    @Autowired
-    Database database;
-
-    private DatabaseFake getDatabase() {
-        return (DatabaseFake)database;
-    }
-
-    private void withPeople(Collection<DatabaseFake.PersonFake> people) {
-        this.getDatabase().withPeople(people);
-    }
-
-    void withPeople(DatabaseFake.PersonFake... people) {
+    void withPeople(Person... people) {
         withPeople(Arrays.asList(people));
     }
 }
