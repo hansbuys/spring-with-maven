@@ -9,6 +9,8 @@ public class PersonControllerTests extends PersonControllerTestBase {
 
     @Test
     public void indexDisplaysEmptyListWhenNoPeopleInDatabase() throws Exception {
+        withPeople();
+
         executeRequest("/person")
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$").isArray())
