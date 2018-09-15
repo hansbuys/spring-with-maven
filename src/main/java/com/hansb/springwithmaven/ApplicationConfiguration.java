@@ -1,8 +1,8 @@
 package com.hansb.springwithmaven;
 
-import com.hansb.springwithmaven.index.InMemoryIndexDatabase;
+import com.hansb.springwithmaven.index.inmemory.InMemoryIndexDatabase;
 import com.hansb.springwithmaven.index.IndexDatabase;
-import com.hansb.springwithmaven.people.InMemoryPeopleDatabase;
+import com.hansb.springwithmaven.people.inmemory.InMemoryPeopleDatabase;
 import com.hansb.springwithmaven.people.PeopleDatabase;
 import org.springframework.beans.factory.InjectionPoint;
 import org.springframework.context.annotation.Bean;

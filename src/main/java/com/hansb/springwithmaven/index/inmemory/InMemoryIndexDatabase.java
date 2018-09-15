@@ -1,4 +1,6 @@
-package com.hansb.springwithmaven.index;
+package com.hansb.springwithmaven.index.inmemory;
+
+import com.hansb.springwithmaven.index.IndexDatabase;
 
 public class InMemoryIndexDatabase implements IndexDatabase {
     @Override

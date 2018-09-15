@@ -1,10 +1,10 @@
 package com.hansb.springwithmaven.people;
 
-class Person {
+public class Person {
     private final int id;
     private final String name;
 
-    Person(int id, String name) {
+    public Person(int id, String name) {
         this.id = id;
         this.name = name;
     }

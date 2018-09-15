@@ -1,4 +1,7 @@
-package com.hansb.springwithmaven.people;
+package com.hansb.springwithmaven.people.inmemory;
+
+import com.hansb.springwithmaven.people.PeopleDatabase;
+import com.hansb.springwithmaven.people.Person;
 
 import java.util.Arrays;
 import java.util.Collection;
